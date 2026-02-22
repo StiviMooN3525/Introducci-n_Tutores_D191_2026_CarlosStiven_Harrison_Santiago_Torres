@@ -1,0 +1,44 @@
+/* CSS adicional para gradientes radiales y efectos personalizados */
+/* Agregar esto a tu archivo CSS global o Tailwind config */
+
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+}
+
+.from-\[#0a0a0a\] {
+  --tw-gradient-from: #0a0a0a;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(10, 10, 10, 0));
+}
+
+.via-\[#121212\] {
+  --tw-gradient-stops: var(--tw-gradient-from), #121212, var(--tw-gradient-to, rgba(18, 18, 18, 0));
+}
+
+.to-\[#0a0a0a\] {
+  --tw-gradient-to: #0a0a0a;
+}
+
+/* Efectos de glow para botones */
+.shadow-glow-cyan {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+}
+
+.shadow-glow-cyan:hover {
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.5);
+}
+
+/* Animaciones adicionales si no usas Framer Motion */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
