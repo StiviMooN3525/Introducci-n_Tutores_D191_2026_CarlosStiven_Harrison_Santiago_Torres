@@ -1,0 +1,80 @@
+/* Login page - tema claro verde/blanco/gris */
+
+:root{
+
+  --bg: #ffffff;
+
+  --card: #f8fffb;
+
+  --text: #0f172a;
+
+  --muted: #6b7280;
+
+  --green: #2f855a;
+
+  --green-dark: #195e42;
+
+  --border: #e6e8eb;
+
+  --radius: 14px;
+
+  --shadow: 0 12px 30px rgba(16,24,40,0.06);
+
+}
+
+
+
+*{box-sizing:border-box}
+
+body.login-page{background: linear-gradient(rgba(15,23,42,0.65), rgba(15,23,42,0.65)), url('../imagen/fondo.jpg') center/cover no-repeat; color:var(--text);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;margin:0}
+
+
+
+.login-wrapper{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;z-index:10}
+
+.login-card{width:100%;background:rgba(255,255,255,0.96);border:1px solid var(--border);box-shadow:0 20px 40px rgba(16,24,40,0.12);border-radius:var(--radius);padding:36px;backdrop-filter: blur(8px)}
+
+.login-header{text-align:center;margin-bottom:18px}
+
+.login-header h2{margin:0;font-size:1.75rem;color:var(--green-dark)}
+
+.login-header p{margin:6px 0 0;color:var(--muted)}
+
+
+
+.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+
+.role-btn{display:flex;flex-direction:column;align-items:center;padding:14px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--muted);cursor:pointer;transition:all .18s}
+
+.role-btn .emoji{font-size:1.7rem;margin-bottom:6px}
+
+.role-btn.active{background:linear-gradient(180deg, rgba(47,133,90,0.08), rgba(47,133,90,0.02));border-color:rgba(47,133,90,0.18);color:var(--green-dark);transform:translateY(-4px)}
+
+
+
+.field{margin-bottom:14px}
+
+.field label{display:block;font-weight:600;color:var(--text);margin-bottom:8px}
+
+.field input{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--text);font-size:1rem}
+
+.field input:focus{outline:none;box-shadow:0 6px 18px rgba(47,133,90,0.08);border-color:var(--green)}
+
+
+
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer;border:1px solid transparent}
+
+.btn-primary{background:var(--green);color:#fff}
+
+.btn-primary:hover{background:var(--green-dark)}
+
+.link-muted{color:var(--green);font-weight:600;text-decoration:none}
+
+
+
+.error-box{padding:12px;border-radius:10px;background:#fff0f0;border:1px solid #f5c2c7;color:#9b1c1c;margin-bottom:12px}
+
+
+
+@media(max-width:600px){.role-grid{grid-template-columns:1fr}.login-card{padding:24px}}
+

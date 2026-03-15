@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Project-level accessibility and spacing decisions:
+ - Use a neutral white panel with dark text for 4.5:1 contrast.
+ - Spacing follows an 8px baseline (Tailwind's scale is 4px; use multiples of 2).
+ - Inputs and buttons have visible focus rings for keyboard users.
+*/
+
+:root{
+  --green-600: #2f855a; /* primary */
+  --green-700: #195e42;
+}
+
+.container-max{max-width:1200px;margin-left:auto;margin-right:auto;padding-left:16px;padding-right:16px}
+
+/* High-contrast table header */
+.table-bg{background-color:#f3f4f6} /* light gray to improve readability */
+
+/* Ghost button for secondary actions */
+.btn-ghost{@apply bg-transparent border border-gray-200 text-gray-700 hover:bg-gray-50}
+
+/* Accessible focus for inputs/buttons */
+input:focus, button:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(47,133,90,0.12);border-color:var(--green-600)}

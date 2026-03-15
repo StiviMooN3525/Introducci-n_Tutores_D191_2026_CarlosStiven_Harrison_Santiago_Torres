@@ -1,0 +1,274 @@
+/* Responsive Tables para Sistema de Tutorías */
+
+/* ======== TABLE RESPONSIVE WRAPPER ======== */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ======== MOBILE TABLE CARDS ======== */
+@media (max-width: 768px) {
+    /* Convert table to card layout on mobile */
+    .table-card {
+        display: none;
+    }
+    
+    .table-mobile {
+        display: block;
+    }
+    
+    .table-mobile .item {
+        background: white;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border: 1px solid #e9ecef;
+    }
+    
+    .table-mobile .item-header {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .table-mobile .item-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.25rem;
+        font-size: 0.875rem;
+    }
+    
+    .table-mobile .item-label {
+        font-weight: 500;
+        color: #666;
+    }
+    
+    .table-mobile .item-value {
+        text-align: right;
+        color: #333;
+    }
+    
+    .table-mobile .item-actions {
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid #e9ecef;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        justify-content: flex-end;
+    }
+    
+    .table-mobile .btn {
+        font-size: 0.75rem;
+        padding: 0.375rem 0.75rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .table-card {
+        display: table;
+    }
+    
+    .table-mobile {
+        display: none;
+    }
+}
+
+/* ======== IMPROVED TABLE STYLES ======== */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table th {
+    background: #f8f9fa;
+    padding: 1rem 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+    color: #495057;
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+.table td {
+    padding: 1rem 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+    font-size: 0.875rem;
+}
+
+.table tr:hover {
+    background: #f8f9fa;
+}
+
+/* ======== COLUMN HIDING FOR MOBILE ======== */
+@media (max-width: 480px) {
+    .table th.hide-mobile,
+    .table td.hide-mobile {
+        display: none;
+    }
+    
+    .table th.priority-mobile,
+    .table td.priority-mobile {
+        display: table-cell;
+    }
+}
+
+@media (max-width: 768px) {
+    .table th.hide-tablet,
+    .table td.hide-tablet {
+        display: none;
+    }
+}
+
+/* ======== BUTTON GROUPS IN TABLES ======== */
+.table-actions {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    white-space: nowrap;
+}
+
+.table-actions form {
+    display: inline-block;
+    margin: 0;
+}
+
+.table-actions .btn {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+    margin: 0;
+    min-width: auto;
+}
+
+/* ======== CHIP STYLES IN TABLES ======== */
+.table .chip {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    margin: 0.1rem;
+    display: inline-block;
+}
+
+/* ======== STATUS INDICATORS ======== */
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+}
+
+.status-indicator::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.status-indicator.active {
+    color: #28a745;
+}
+
+.status-indicator.inactive {
+    color: #dc3545;
+}
+
+.status-indicator.pending {
+    color: #ffc107;
+}
+
+/* ======== MOBILE-FIRST TABLE DESIGN ======== */
+@media (max-width: 640px) {
+    .table-responsive {
+        border-radius: 0;
+        box-shadow: none;
+        border: 1px solid #e9ecef;
+    }
+    
+    .table {
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    .table th,
+    .table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .table-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .table-actions .btn {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+}
+
+/* ======== HORIZONTAL SCROLL INDICATOR ======== */
+.table-scroll-indicator {
+    position: relative;
+}
+
+.table-scroll-indicator::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    background: linear-gradient(to right, transparent, rgba(0,0,0,0.1));
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.table-scroll-indicator.scrolling::after {
+    opacity: 1;
+}
+
+/* ======== ACCESSIBILITY ======== */
+@media (prefers-reduced-motion: reduce) {
+    .table-scroll-indicator::after {
+        transition: none;
+    }
+    
+    .table tr:hover {
+        background: transparent;
+    }
+    
+    .table tr:focus-within {
+        background: #f8f9fa;
+    }
+}
+
+/* ======== PRINT STYLES ======== */
+@media print {
+    .table-responsive {
+        overflow: visible;
+    }
+    
+    .table-actions {
+        display: none;
+    }
+    
+    .table-mobile {
+        display: none !important;
+    }
+}

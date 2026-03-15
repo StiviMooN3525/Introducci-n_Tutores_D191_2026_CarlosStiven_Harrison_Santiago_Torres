@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema Tutorías</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-gradient-radial { background: radial-gradient(ellipse at center, #0a0a0a 0%, #121212 50%, #0a0a0a 100%); }
+        .backdrop-blur-glass { backdrop-filter: blur(20px); }
+        .shadow-deep { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05); }
+        .glow-neon { box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.5), 0 0 20px rgba(34, 211, 238, 0.3); }
+        .btn-glow { box-shadow: 0 0 20px rgba(34, 211, 238, 0.4); }
+        .btn-glow:hover { box-shadow: 0 0 30px rgba(34, 211, 238, 0.6), 0 0 40px rgba(34, 211, 238, 0.4); }
+        .animate-fade-in { animation: fadeIn 0.8s ease-out; }
+        .animate-slide-up { animation: slideUp 0.6s ease-out 0.2s both; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-radial flex items-center justify-center p-4 font-['Inter',sans-serif] text-white">
+    <div class="absolute inset-0 bg-gradient-radial opacity-80"></div>
+
+    <div class="relative z-10 w-full max-w-md animate-fade-in">
+        <div class="backdrop-blur-glass bg-black/20 border border-white/10 rounded-3xl p-8 shadow-deep">
+            <div class="text-center mb-8 animate-slide-up">
+                <h1 class="text-3xl font-bold mb-2 tracking-tight">Acceder al Sistema</h1>
+                <p class="text-gray-400 text-sm">Selecciona tu rol e ingresa tus credenciales</p>
+            </div>
+
+            <form class="space-y-6 animate-slide-up" style="animation-delay: 0.4s;">
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-3">Rol</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button type="button" class="role-btn active p-3 rounded-xl border border-cyan-400 bg-cyan-400/20 text-cyan-300 transition-all duration-300" data-role="estudiante">
+                            <div class="text-2xl mb-1">👨‍🎓</div>
+                            <div class="text-xs font-medium">Estudiante</div>
+                        </button>
+                        <button type="button" class="role-btn p-3 rounded-xl border border-gray-600 bg-gray-800/50 text-gray-400 hover:border-gray-500 hover:bg-gray-700/50 transition-all duration-300" data-role="profesor">
+                            <div class="text-2xl mb-1">👨‍🏫</div>
+                            <div class="text-xs font-medium">Profesor</div>
+                        </button>
+                        <button type="button" class="role-btn p-3 rounded-xl border border-gray-600 bg-gray-800/50 text-gray-400 hover:border-gray-500 hover:bg-gray-700/50 transition-all duration-300" data-role="administrador">
+                            <div class="text-2xl mb-1">👔</div>
+                            <div class="text-xs font-medium">Admin</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Correo Electrónico</label>
+                    <input type="email" class="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 hover:border-gray-500" placeholder="tu@email.com" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Contraseña</label>
+                    <input type="password" class="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 hover:border-gray-500" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="w-full py-3 px-6 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold rounded-xl btn-glow transition-all duration-300 transform hover:scale-105">
+                    Iniciar Sesión
+                </button>
+            </form>
+
+            <div class="mt-6 text-center animate-slide-up" style="animation-delay: 0.6s;">
+                <p class="text-gray-500 text-sm">
+                    ¿No tienes cuenta? <a href="#" class="text-cyan-400 hover:text-cyan-300 transition-colors duration-300">Regístrate aquí</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const roleButtons = document.querySelectorAll('.role-btn');
+        roleButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                roleButtons.forEach(b => b.classList.remove('active', 'border-cyan-400', 'bg-cyan-400/20', 'text-cyan-300'));
+                roleButtons.forEach(b => b.classList.add('border-gray-600', 'bg-gray-800/50', 'text-gray-400'));
+                btn.classList.add('active', 'border-cyan-400', 'bg-cyan-400/20', 'text-cyan-300');
+                btn.classList.remove('border-gray-600', 'bg-gray-800/50', 'text-gray-400');
+            });
+        });
+    </script>
+</body>
+</html>

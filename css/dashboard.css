@@ -1,0 +1,168 @@
+/* Dashboard Profesor - fondo con imagen fondo2.png y tema claro/verde sutil */
+:root{
+  --bg-overlay: rgba(4,7,11,0.45);
+  --panel-bg: rgba(255,255,255,0.92);
+  --text: #0f172a;
+  --muted: #6b7280;
+  --green: #2f855a;
+  --border: rgba(14,20,15,0.06);
+  --card-radius: 12px;
+  --card-shadow: 0 10px 30px rgba(16,24,40,0.06);
+}
+
+body.dashboard-bg{background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url('../imagen/fondo2.png') center/cover no-repeat;}
+
+.site-header{background: rgba(255,255,255,0.85);backdrop-filter: blur(6px);border-bottom:1px solid var(--border)}
+
+.container{max-width:1200px;margin:0 auto;padding:20px}
+
+.card{background:var(--panel-bg);border-radius:var(--card-radius);padding:20px;border:1px solid var(--border);box-shadow:var(--card-shadow)}
+
+.muted{color:var(--muted)}
+
+.dashboard-grid{gap:22px;margin-top:20px}
+
+.table th{background:transparent;color:var(--muted);border-bottom:1px solid var(--border)}
+
+.btn.primary{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* Force light, high-contrast tables inside dashboard to improve readability */
+.dashboard-bg .table{
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 8px;
+  border-collapse: separate;
+}
+.dashboard-bg .table thead th{
+  background: #f3f4f6; /* light gray header */
+  color: #0f172a; /* dark text for 4.5:1 contrast */
+  font-weight: 600;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(15,23,42,0.06);
+}
+.dashboard-bg .table tbody td{
+  background: #ffffff; /* white rows for maximum contrast */
+  color: #0f172a;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(15,23,42,0.04);
+}
+
+/* Lighter, semantic chips for status */
+.dashboard-bg .chip.pendiente{background:#fef3c7;color:#92400e}
+.dashboard-bg .chip.aceptada{background:#d1fae5;color:#065f46}
+.dashboard-bg .chip.cancelada{background:#fee2e2;color:#991b1b}
+.dashboard-bg .chip.completada{background:#dbeafe;color:#1e40af}
+
+/* Ensure muted text in cards is readable */
+.dashboard-bg .card .muted{color:var(--muted)}
+
+/* Date/time and form controls: force light, readable fields */
+.dashboard-bg input[type="date"],
+.dashboard-bg input[type="time"],
+.dashboard-bg input[type="text"],
+.dashboard-bg input[type="email"],
+.dashboard-bg input[type="password"],
+.dashboard-bg input[type="number"],
+.dashboard-bg input[type="tel"],
+.dashboard-bg input[type="search"],
+.dashboard-bg input[type="url"],
+.dashboard-bg select,
+.dashboard-bg textarea {
+  background: #fbfdff; /* very light tint for contrast */
+  color: #0f172a;
+  border: 1.6px solid rgba(15,23,42,0.28);
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.06);
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease, transform 0.06s ease;
+}
+
+/* Placeholder color and improved contrast */
+.dashboard-bg input::placeholder,
+.dashboard-bg textarea::placeholder,
+.dashboard-bg select::placeholder {
+  color: rgba(15,23,42,0.55);
+}
+
+/* Stronger focus state so the active field se destaque aún más */
+.dashboard-bg input:focus,
+.dashboard-bg select:focus,
+.dashboard-bg textarea:focus {
+  outline: none;
+  border: 2px solid var(--green);
+  box-shadow: 0 0 0 8px rgba(47,133,90,0.12);
+  transform: translateY(-1px);
+}
+
+.dashboard-bg input:focus, .dashboard-bg select:focus, .dashboard-bg textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(47,133,90,0.08);
+}
+
+/* Ensure date picker icon is visible and not dimmed */
+.dashboard-bg input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: none;
+  opacity: 1;
+}
+
+
+@media(max-width:900px){.dashboard-grid{grid-template-columns:1fr}}
+
+/* Override accent (blue) with olive-green for dashboard-specific key elements */
+.dashboard-bg {
+  --olive: #556b2f;
+}
+.dashboard-bg .brand {
+  color: var(--olive) !important;
+}
+.dashboard-bg .card h3 {
+  color: var(--olive) !important;
+}
+.dashboard-bg .main-nav a:hover {
+  color: var(--olive) !important;
+}
+
+/* Add spacing between stacked cards and sections in dashboards (eg. admin) */
+.dashboard-bg .card {
+  margin-bottom: 20px;
+}
+
+/* Make white tables more prominent: add a clear black outer border */
+.dashboard-bg .table {
+  border: 2px solid #000000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Slightly darken horizontal separators to match outer border */
+.dashboard-bg .table tbody td {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Highlight the "Crear Usuario" form inside admin panel with a distinct black border */
+.dashboard-bg .admin-panel .card:first-child form {
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 16px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.dashboard-bg .admin-panel .card:first-child form input,
+.dashboard-bg .admin-panel .card:first-child form select {
+  background: #fff;
+  color: #0f172a;
+}
+
+/* Mejor indicador visual al enfocar campos del formulario */
+.dashboard-bg .admin-panel .card:first-child form input:focus,
+.dashboard-bg .admin-panel .card:first-child form select:focus,
+.dashboard-bg .admin-panel .card:first-child form textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(47,133,90,0.08);
+}
